@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.2/font/bootstrap-icons.min.css"
+    integrity="sha512-D1liES3uvDpPrgk7vXR/hR/sukGn7EtDWEyvpdLsyalQYq6v6YUsTUJmku7B4rcuQ21rf0UTksw2i/2Pdjbd3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>TodoList</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="container mt-3 d-flex justify-content-center align-items-center">
+    <div class="d-flex container-fluid">
+      <div class="partie1 row justify-content-center align-items-center">
+        <div class="titre mb-auto">
+          <h4 class="text-center text-white">Ajouter une tache</h4>
+        </div>
+        <div class="mb-auto">
+          <div class="inputBox mb-3">
+            <input type="text" required="required" list="datalistOptions" class="w-100 rounded-2" id="categorie">
+            <span>Categorie</span>
+            <datalist id="datalistOptions">
+              <option value="Academique">
+              <option value="Extra-academique">
+              <option value="Distration">
+            </datalist>
+          </div>
+          <div class="inputBox mb-3">
+            <input type="text" required="required" class="w-100 rounded-2" id="titre">
+            <span>Titre</span>
+          </div>
+          <div class="inputBox mb-3">
+            <input type="date" required="required" class="w-100 rounded-2" name="" id="date">
+            <span class="d-none">Date</span>
+          </div>
+          <div class="inputBox mb-3">
+            <input type="text" required="required" class="w-100 rounded-2" name="" style="height: 60px"
+              id="description">
+            <span>Description</span>
+          </div>
+          <div class="inputBox">
+            <input type="text" required="required" list="datalistOptions2" class="w-100 rounded-2" id="statu">
+            <span>Statu</span>
+            <datalist id="datalistOptions2">
+              <option value="Nouveau">
+              <option value="En Cours">
+              <option value="Terminer">
+            </datalist>
+          </div>
+        </div>
+        <div class="but mb-auto">
+          <div class="bu mt-3 d-flex justify-content-center">
+            <button type="button" class="btn w-100  fw-bold text-white d-flex justify-content-center" id="ajouter"
+              style="--bs-btn-padding-y: .50rem; width: 90%;; --bs-btn-font-size: 1rem;">
+              Ajouter
+            </button>
+          </div>
+          <hr>
+
+        </div>
+        <div class="bar d-flex justify-content-center flex-column align-items-center">
+          <p class="color">Statu</p>
+          <canvas class="w-75 h-75" id="canvas"> </canvas>
+
+        </div>
+      </div>
+      <div class="container-fluid partie2">
+        <div class="position-relative">
+          <div class="position-absolute top-0 end-0 hidden" id="notification">
+            <div class="AjoutTache">Ajoute de la tache</div>
+            <div class="enregistrement">L'enregistrement s'est effectué avec success</div>
+          </div>
+          <div class="position-absolute top-0 end-0 hidden" id="notification2">
+            <div class="AjoutTache">Suppression de la tache</div>
+            <div class="enregistrement">La Suppression s'est effectuée avec success</div>
+          </div>
+        </div>
+        <div class="h-75  border-2 haut mt-4">
+          <h5 class="color text-center">Liste de taches</h5>
+          <div class="mt-4">
+            <table class="table-responsive" id="table">
+              <thead class="text-center">
+                <tr>
+                  <td>#</td>
+                  <td>Date</td>
+                  <td>Titre</td>
+                  <td>Categorie</td>
+                  <td>Opérations</td>
+                </tr>
+              </thead>
+              <tbody id="tbody" class=" text-center border-1 border-top-0 bg-white">
+
+              </tbody>
+            </table>
+            <div class="d-flex position-absolute justify-content-center ">
+              <div class="tabdescripton hidden" id="tableaudescripton">
+                <h6 class="">Information Tache</h6>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class=" bas">
+          <h5 class="mt-3 color text-center">Description</h5>
+          <div class=" form-floating">
+            <textarea class=" " id="floatingTextarea2"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>

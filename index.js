@@ -14,6 +14,7 @@ new Chart(ctx, {
   options: {
   }
 });
+const body = document.body
 const inputCategorie = document.getElementById("categorie");
 const inputTitre = document.getElementById("titre");
 const inputDate = document.getElementById("date");
@@ -21,6 +22,7 @@ const inputStatu = document.getElementById("statu");
 const inputDescription = document.getElementById("description")
 const inputTable = document.getElementById("table");
 const btnAjouter = document.getElementById("ajouter");
+const btnAjouter2 = document.getElementById("ajouter2");
 const trtab = document.getElementById("valeur");
 const btnBouton1 = document.getElementById("bouton1");
 const btnBouton2 = document.getElementById("bouton2");
@@ -28,6 +30,8 @@ const btnBouton3 = document.getElementById("bouton3");
 const tbody = document.getElementById("tbody");
 const notification = document.getElementById("notification")
 const notification2 = document.getElementById("notification2")
+const notification3 = document.getElementById("notification3")
+const floatingTextarea2 = document.getElementById("floatingTextarea2")
 const tableaudescripton = document.getElementById("tableaudescripton")
 // console.log(notification);
 let tabLocalStorage = [];
@@ -41,14 +45,14 @@ tabLocalStorage = JSON.parse(localStorage.getItem("tabLocalStorage"))
 btnAjouter.addEventListener("click", function (event) {
   event?.preventDefault()
   if (inputCategorie.value === "" || inputTitre.value === "" || inputDate === "" || inputDescription === "" || inputStatu === "") {
-    alert("veuillez mettre une valeur")
+    alert("veuillez mettre les valeurs")
   }
   else {
     const tableau = {
       inputCategorie: inputCategorie.value,
       inputTitre: inputTitre.value,
       inputDate: inputDate.value,
-      inputStatu: inputDate.value,
+      inputStatu: inputStatu.value,
       inputDescription: inputDescription.value
     }
     tabLocalStorage.push(tableau);
@@ -74,37 +78,71 @@ function supprimer(index) {
   // Mettre à jour le localStorage
   localStorage.setItem("tabLocalStorage", JSON.stringify(tabLocalStorage));
   notification2.classList.remove("hidden")
-    setTimeout(() => {
-      notification2.classList.add("hidden")
-    }, 3000);
+  setTimeout(() => {
+    notification2.classList.add("hidden")
+  }, 3000);
   // Mettre à jour l'affichage
   todolist();
 }
-//function pour modifier
+//function Pour Modifier
 function modifier(index) {
-  // Pré-remplir les champs avec les détails de la tâche sélectionnée
+  // Récupérer la tâche correspondant à l'index du tableau
+  btnAjouter.classList.add("bu2")
+  btnAjouter2.classList.remove("bu2")
+
+  // Remplir les champs d'entrée avec les valeurs de la tâche à modifier
   inputCategorie.value = tabLocalStorage[index].inputCategorie;
   inputTitre.value = tabLocalStorage[index].inputTitre;
   inputDate.value = tabLocalStorage[index].inputDate;
   inputDescription.value = tabLocalStorage[index].inputDescription;
   inputStatu.value = tabLocalStorage[index].inputStatu;
-  
-  tabLocalStorage = tabLocalStorage.filter((element) => element.index === index);
-  // Mettre à jour l'affichage
-  todolist(index);
+
+  btnAjouter2.addEventListener("click", function (event) {
+    event.preventDefault();
+    btnAjouter.classList.remove("bu2");
+    btnAjouter2.classList.add("bu2");
+
+    tabLocalStorage[index].inputCategorie = inputCategorie.value /* nouvelle valeur */
+    tabLocalStorage[index].inputTitre = inputTitre.value /* nouvelle valeur */
+    tabLocalStorage[index].inputDate = inputDate.value /* nouvelle valeur */
+    tabLocalStorage[index].inputDescription = inputDescription.value /* nouvelle valeur */
+    tabLocalStorage[index].inputStatu = inputStatu.value;/* nouvelle valeur */
+
+    inputCategorie.value = ""
+    inputTitre.value = ""
+    inputDate.value = ""
+    inputDescription.value = ""
+    inputStatu.value = ""
+    notification3.classList.remove("hidden")
+    setTimeout(() => {
+      notification3.classList.add("hidden")
+    }, 3000);
+    // Mettre à jour le tableau localStorage
+    localStorage.setItem("tabLocalStorage", JSON.stringify(tabLocalStorage));
+    // Mettre à jour l'affichage
+    todolist();
+  })
+  localStorage.setItem("tabLocalStorage", JSON.stringify(tabLocalStorage));
+  todolist();
 }
 //function pour afficher
 function afficher(index) {
-  
+
+
+  tableaudescripton.style.backgroundColor = '#ffffff'
+  floatingTextarea2.style.backgroundColor = '#e3e9e9'
+  body.style.backgroundColor = '#e3e9e9'
   tableaudescripton.classList.remove("hidden")
   setTimeout(() => {
-    tableaudescripton.classList.add("hidden")
+    tableaudescripton.classList.add("hidden");
+    body.style.backgroundColor = '';
+    floatingTextarea2.style.backgroundColor = '';
+    tableaudescripton.style.backgroundColor = ''
   }, 3000);
 
   todolist();
 }
-function todolist(event) {
-  event?.preventDefault();
+function todolist() {
   tbody.innerHTML = "";
   tabLocalStorage.forEach((element, index) => {
     tbody.innerHTML += `
@@ -126,6 +164,5 @@ function todolist(event) {
      </td>
    </tr>`
   });
-
 }
 todolist();

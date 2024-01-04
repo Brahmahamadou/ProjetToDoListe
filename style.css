@@ -26,7 +26,6 @@ table{
     background-color: #69A7A9;
     color: white;
     margin-left: 1rem;
-    
 }
 
 table tr td{
@@ -38,13 +37,16 @@ tbody{
     color: rgb(202, 190, 190);
     
 }
-.bu button{
+.bu #ajouter{
     background-color:  #69A7A9;
 }
-.bu button:hover{
+.bu #ajouter:hover{
     background-color:  white;
     border: 1px solid #69A7A9;  
     color: #69A7A9 !important;
+}
+.bu #ajouter2{
+    background-color:#04ffcc;
 }
 .hr2{
     margin-top: 24em;
@@ -159,9 +161,9 @@ tbody{
 tr:nth-child(even){
     background-color:#69A7A9;
 }
-::-webkit-scrollbar{
+/* ::-webkit-scrollbar{
     width: 15px;
-}
+} */
 tbody tr:hover{
     background-color: #C8DFE0;
 }
@@ -192,4 +194,7 @@ h6{
     border-radius: 5px;
     outline: none;
     padding: 10px;
+}
+.bu2{
+    display: none;
 }

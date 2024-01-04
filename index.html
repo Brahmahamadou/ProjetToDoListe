@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <div class="container mt-3 d-flex justify-content-center align-items-center">
+  <div class="container  mt-3 d-flex justify-content-center align-items-center">
     <div class="d-flex container-fluid">
       <div class="partie1 row justify-content-center align-items-center">
         <div class="titre mb-auto">
@@ -39,7 +39,7 @@
           </div>
           <div class="inputBox mb-3">
             <input type="date" required="required" class="w-100 rounded-2" name="" id="date">
-            <span class="d-none">Date</span>
+            <span class="d-none">Date </span>
           </div>
           <div class="inputBox mb-3">
             <input type="text" required="required" class="w-100 rounded-2" name="" style="height: 60px"
@@ -57,11 +57,15 @@
           </div>
         </div>
         <div class="but mb-auto">
-          <div class="bu mt-3 d-flex justify-content-center">
-            <button type="button" class="btn w-100  fw-bold text-white d-flex justify-content-center" id="ajouter"
+          <div class="bu mt-3  justify-content-center">
+            <button type="button" class="btn w-100  fw-bold text-white justify-content-center" id="ajouter"
               style="--bs-btn-padding-y: .50rem; width: 90%;; --bs-btn-font-size: 1rem;">
               Ajouter
             </button>
+            <button type="button" class="btn bu2 mt-1 fw-bold text-white justify-content-center" id="ajouter2"
+            style="--bs-btn-padding-y: .50rem; width: 100%; --bs-btn-font-size: 1rem;">
+            Ajouter
+          </button>
           </div>
           <hr>
 
@@ -82,11 +86,15 @@
             <div class="AjoutTache">Suppression de la tache</div>
             <div class="enregistrement">La Suppression s'est effectuée avec success</div>
           </div>
+          <div class="position-absolute top-0 end-0 hidden" id="notification3">
+            <div class="AjoutTache">Mise à jour de la tache</div>
+            <div class="enregistrement">La Mise à jour s'est effectuée avec success</div>
+          </div>
         </div>
-        <div class="h-75  border-2 haut mt-4">
+        <div class="h-75 overflow-x-hidden overflow-scroll border-2  haut mt-4">
           <h5 class="color text-center">Liste de taches</h5>
           <div class="mt-4">
-            <table class="table-responsive" id="table">
+            <table class="table-responsive " id="table">
               <thead class="text-center">
                 <tr>
                   <td>#</td>
@@ -103,7 +111,9 @@
             <div class="d-flex position-absolute justify-content-center ">
               <div class="tabdescripton hidden" id="tableaudescripton">
                 <h6 class="">Information Tache</h6>
-
+               <tbody>
+               
+               </tbody>
               </div>
             </div>
           </div>

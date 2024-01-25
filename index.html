@@ -20,8 +20,9 @@
   <div class="container  mt-3 d-flex justify-content-center align-items-center">
     <div class="d-flex container-fluid">
       <div class="partie1 row justify-content-center align-items-center">
-        <div class="titre mb-auto">
-          <h4 class="text-center text-white">Ajouter une tache</h4>
+        <div id="titre1" class="titre mb-auto">
+          <h4 id="pe1" class="text-center text-white">Ajouter une tache</h4>
+          <p id="pe" class="text-center fs-5 hidden text-white">Mise à jour de la tache</p>
         </div>
         <div class="mb-auto">
           <div class="inputBox mb-3">
@@ -64,7 +65,7 @@
             </button>
             <button type="button" class="btn bu2 mt-1 fw-bold text-white justify-content-center" id="ajouter2"
             style="--bs-btn-padding-y: .50rem; width: 100%; --bs-btn-font-size: 1rem;">
-            Ajouter
+            Mise à Jour
           </button>
           </div>
           <hr>
@@ -94,7 +95,7 @@
         <div class="h-75 overflow-x-hidden overflow-scroll border-2  haut mt-4">
           <h5 class="color text-center">Liste de taches</h5>
           <div class="mt-4">
-            <table class="table-responsive " id="table">
+            <table class="table-responsive " id="table1">
               <thead class="text-center">
                 <tr>
                   <td>#</td>
@@ -104,21 +105,23 @@
                   <td>Opérations</td>
                 </tr>
               </thead>
-              <tbody id="tbody" class=" text-center border-1 border-top-0 bg-white">
+              <tbody id="tbody1" class=" text-center border-1 border-top-0 bg-white">
 
               </tbody>
             </table>
-            <div class="d-flex position-absolute justify-content-center ">
+            <div class="d-flex justify-content-center">
               <div class="tabdescripton hidden" id="tableaudescripton">
                 <h6 class="">Information Tache</h6>
-               <tbody>
-               
-               </tbody>
+                <table class="table">
+                  <tbody id="bod">
+              
+                   </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
-        <div class=" bas">
+        <div class="bas">
           <h5 class="mt-3 color text-center">Description</h5>
           <div class=" form-floating">
             <textarea class=" " id="floatingTextarea2"></textarea>
